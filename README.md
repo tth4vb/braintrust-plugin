@@ -119,18 +119,12 @@ The lens is **calibrated**: ~94% agreement with careful human judgment, and **ze
 
 ---
 
-## Honest limits
+## Current limitations of this plugin
 
 - **Only as fresh as your last ingest** — there's no background sync. `ask` tells you when the base was last updated.
 - **Grading runs in your session** — the rubric is calibrated, but the actual grades are produced by whatever model you're running; weaker models give noisier grades.
 - **Local-only by design** — `sources/` and `analysis/` are gitignored because they contain verbatim user quotes, so the evidence base isn't shared with teammates or CI.
 - **Absence of evidence ≠ evidence of absence** — a "no-evidence" verdict means your base is silent on something, not that users don't want it.
-
----
-
-## Roadmap (not in v0.2)
-
-A future version may serve the evidence-graded slice to agents via an **MCP server** + a `pull` context-pack, and add automated connectors / scheduled re-ingest. v0.2 is the in-session workflow — the cheapest way to find out if the evidence base is useful before building the heavier pipe.
 
 ---
 
