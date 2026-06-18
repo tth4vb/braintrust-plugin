@@ -1,0 +1,20 @@
+{
+  "name": "braintrust",
+  "owner": {
+    "name": "Trevor Hinkle"
+  },
+  "description": "Brain Trust — put your company's scattered knowledge through a user-research evidence lens, so coding agents build from real user signal instead of opinion.",
+  "plugins": [
+    {
+      "name": "braintrust",
+      "source": "./plugins/braintrust",
+      "description": "Grades text through a calibrated Mom Test evidence lens (usable vs. discount), and helps you plan which knowledge sources to ingest for user research.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Trevor Hinkle"
+      },
+      "keywords": ["user-research", "evidence", "mom-test", "product", "discovery", "insights"],
+      "category": "productivity"
+    }
+  ]
+}
