@@ -14,9 +14,9 @@ Two skills, no servers, no ingestion infrastructure — the lens runs entirely i
 ## Install
 
 ```bash
-# add this marketplace (local path, or your git remote once pushed)
-/plugin marketplace add ./braintrust-plugin
-# or: /plugin marketplace add <your-github-user>/braintrust-plugin
+# add this marketplace from GitHub
+/plugin marketplace add tth4vb/braintrust-plugin
+# (or from a local clone: /plugin marketplace add ./braintrust-plugin)
 
 /plugin install braintrust@braintrust
 ```
