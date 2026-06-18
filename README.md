@@ -2,8 +2,6 @@
 
 Turn your scattered user research into an **evidence-graded running analysis**, then pressure-test product ideas against it — so your coding agent builds from real user signal instead of opinion.
 
-A single Claude Code **plugin** (`braintrust`), distributed through the official community marketplace.
-
 ## The workflow (zero backend — runs in your session)
 
 ```
@@ -44,13 +42,7 @@ Then:
 /braintrust:braintrust-ask "should we build bulk CSV import?"   # test an idea
 ```
 
-## The idea
 
-The lens biases toward **firsthand, specific user behavior** (usable evidence) over hypotheticals and compliments (the fool's gold of customer learning), and says *borderline* when a signal is real-but-relayed or only thinly behavioral. It's calibrated — ~94% agreement with human judgment, and **zero hard usable↔discount errors** on a public held-out set. The highest-value thing it surfaces: an idea that's confident but rests on weak evidence.
-
-## Roadmap (not in v0.2)
-
-A future version may serve the evidence-graded slice to agents via an **MCP server** + a `pull` context-pack, and add automated connectors / scheduled re-ingest. v0.2 is the in-session workflow — the cheapest way to find out if the evidence base is useful before building the heavier pipe.
 
 ## Development
 
