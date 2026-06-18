@@ -2,3 +2,6 @@
 *.log
 .venv/
 __pycache__/
+
+# Local-only dev marketplace for testing; the published repo is a bare plugin.
+dev-marketplace/
