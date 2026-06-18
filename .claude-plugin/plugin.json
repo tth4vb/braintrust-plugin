@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "braintrust",
-  "displayName": "Brain Trust",
-  "version": "0.1.0",
-  "description": "Grade user-research text — interview notes, support tickets, survey answers, sales-call notes — as usable / borderline / discount using a calibrated Mom Test evidence lens, so your agent builds on real user signal instead of opinion. Includes a setup skill that plans which knowledge sources to ingest. Zero backend; runs in your session.",
+  "displayName": "Braintrust",
+  "version": "0.2.0",
+  "description": "Turn your scattered user research into an evidence-graded running analysis, then pressure-test product ideas against it. braintrust-setup finds where your user knowledge lives; braintrust-ingest copies sources into a project-local braintrust/ store and grades every claim usable / borderline / discount with a calibrated Mom Test lens; braintrust-ask judges whether users actually want an idea, citing specific quotes, provenance, and gaps. Zero backend; runs entirely in your Claude Code session.",
   "author": {
     "name": "Trevor Hinkle"
   },
   "homepage": "https://github.com/tth4vb/braintrust-plugin",
   "repository": "https://github.com/tth4vb/braintrust-plugin",
   "license": "MIT",
-  "keywords": ["user-research", "evidence", "mom-test", "product-management", "discovery", "customer-insights", "ux-research", "voice-of-customer"]
+  "keywords": ["user-research", "evidence", "mom-test", "product-management", "discovery", "customer-insights", "ux-research", "voice-of-customer", "running-analysis", "evidence-base"]
 }

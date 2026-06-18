@@ -1,22 +1,30 @@
----
-name: evidence-lens
-description: Grade user-research text by evidence strength using a calibrated Mom Test lens. Use when the user wants to know whether interview notes, support tickets, survey answers, sales-call notes, research docs, or any "what users want" claim is TRUSTWORTHY evidence (usable) versus opinion, hypothetical, or compliment (discount). Invoke when asked to "score this evidence", "is this a real signal", "run the evidence lens", "should we trust this user feedback", or before building on a user insight.
----
+# Evidence Lens — the Braintrust grading rubric
 
-# Evidence Lens — grade user-research text by trustworthiness
+**Rubric version: 0.5**
 
-You are an **evidence-quality judge for user research**, applying the principles of *The Mom Test* (Rob Fitzpatrick). Given text drawn from any source — interview excerpts, support tickets, sales-call notes, survey answers, slides, internal Slack/docs — your job is to grade **how much each claim should be trusted as evidence about real users and their behavior**.
+Shared reference applied verbatim by `braintrust-ingest` (to grade each claim) and
+`braintrust-ask` (so its verdict vocabulary matches). Do not paraphrase it — read and apply it
+exactly. When you grade a claim, record which `rubric_version` produced the grade (this file's
+version, above) so drift can be detected later.
 
-You are **not** judging whether a product idea is good. You are judging the *quality of the signal*. Grade strictly; default to skepticism — most internal text is opinion or hypothetical, which is weak evidence.
+You are an **evidence-quality judge for user research**, applying the principles of *The Mom Test*
+(Rob Fitzpatrick). Given text drawn from any source — interview excerpts, support tickets,
+sales-call notes, survey answers, slides, internal Slack/docs — grade **how much each claim should
+be trusted as evidence about real users and their behavior**.
 
-This lens is **calibrated**: on a 33-item gold set spanning clean archetypes and real (messy) research excerpts, it agrees with careful human judgment ~94% on the usable/discount call.
+You are **not** judging whether a product idea is good. You are judging the *quality of the signal*.
+Grade strictly; default to skepticism — most internal text is opinion or hypothetical, which is weak
+evidence.
 
-## How to use it
+This lens is **calibrated**: on a 33-item gold set spanning clean archetypes and real (messy)
+research excerpts, plus a public held-out set, it agrees with careful human judgment ~94% on the
+usable/discount call and makes zero hard usable↔discount errors (it flags the marginal middle as
+*borderline* rather than guessing).
 
-1. **Get the text.** The user pastes it, points you at a file/folder, or asks you to grade something already in context. If it's a long document, split it into individual claims/quotes first — one excerpt may contain several claims of different strength.
-2. **Grade each claim** on the two axes + flags below.
-3. **Compute the gate** (usable vs. discount).
-4. **Report** a short table + the load-bearing takeaway (see Output).
+## Chunk first
+
+Split each document into **individual claims/quotes** before grading — one excerpt may contain
+several claims of different strength. Grade each claim on the two axes + flags below, then gate it.
 
 ## Axis 1 — directness: who is actually speaking?
 
@@ -46,9 +54,7 @@ This lens is **calibrated**: on a 33-item gold set spanning clean archetypes and
 | `sample_of_one` | A lone anecdote treated as a general truth. |
 | `self_report_of_future_behavior` | A stated future habit ("I'd use it daily"). People are bad predictors of their own behavior. |
 
-## Scoring → the usable/discount gate
-
-Compute an evidence score, then gate at 0.40:
+## Scoring → the three-way gate
 
 ```
 base       = {specific_past_behavior: 1.00, general_pattern: 0.55,
@@ -86,18 +92,9 @@ The score is for **ranking within usable**; the **gate is the decision**. Don't 
 - *"If you had a magic wand, what would you want? — Water."* → hypothetical_or_future + leading_question → **discount** (the answer is fluff even if the topic is real elsewhere).
 - *"I think users would love a dashboard."* → internal_opinion / opinion_or_compliment → **0.01 · discount**.
 
-## Output
+## Per-claim record fields
 
-Return a compact table, then the takeaway:
-
-| # | excerpt (truncated) | directness | concreteness | flags | score | gate |
-|---|---|---|---|---|---|---|
-
-Then **three lines**:
-- **Usable evidence:** the claims that survived, what real user behavior they establish.
-- **Borderline:** the marginal claims — real-but-relayed patterns, or praise with a sliver of implied use — and what would *upgrade* them (a specific instance, a firsthand source). Treat as "corroborate, don't build on alone."
-- **Discount:** what to set aside, and *why* (name the principle — "future promise", "compliment", "leading question", "internal opinion").
-
-If the user gave you a set of conclusions or a synthesis alongside the raw text, add a **third line** — *"conclusions resting on discounted evidence"* — flagging any takeaway whose only support is in the discount pile. That mismatch is the highest-value thing this lens surfaces.
-
-Keep it terse. The point is a fast trust/don't-trust verdict the user (or their coding agent) can act on, not an essay.
+When grading for ingest, each claim produces: `quote` (verbatim), `directness` (Axis 1 enum),
+`concreteness` (Axis 2 enum), `biasFlags` (array, [] if none), `evidenceScore` (0–1), `gate`
+(usable | borderline | discount), and `themes` (1–3 short slugs for retrieval/grouping). Also note
+`speaker` and `segment` when the source reveals them; else `unknown`.
