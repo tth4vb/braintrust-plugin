@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "braintrust",
   "displayName": "Braintrust",
-  "version": "0.2.0",
-  "description": "Turn your scattered user research into an evidence-graded running analysis, then pressure-test product ideas against it. braintrust-setup finds where your user knowledge lives; braintrust-ingest copies sources into a project-local braintrust/ store and grades every claim usable / borderline / discount with a calibrated Mom Test lens; braintrust-ask judges whether users actually want an idea, citing specific quotes, provenance, and gaps. Zero backend; runs entirely in your Claude Code session.",
+  "version": "0.3.0",
+  "description": "Turn your scattered user research into an evidence-graded running analysis, then pressure-test product ideas against it. braintrust-setup finds where your user knowledge lives; braintrust-ingest copies sources into a project-local braintrust/ store and grades every claim usable / borderline / discount with a calibrated Mom Test lens, flagging where the judge is unsure and where weak signals converge across segments so you can judge them in context; braintrust-ask judges whether users actually want an idea, citing specific quotes, provenance, and gaps. Zero backend; runs entirely in your Claude Code session.",
   "author": {
     "name": "Trevor Hinkle"
   },

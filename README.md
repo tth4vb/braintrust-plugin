@@ -117,6 +117,8 @@ Every claim is scored on two axes from *The Mom Test* (Rob Fitzpatrick):
 
 The lens is **calibrated**: ~94% agreement with careful human judgment, and **zero hard usable↔discount errors** on a public held-out set — it flags the genuinely marginal middle as *borderline* rather than guessing. The single most valuable thing it surfaces is **a confident idea resting on weak evidence**.
 
+**When the lens is unsure, it discloses rather than buries.** Claims where the judge is genuinely torn between two bands get a **"⚑ Judge unsure — you decide"** treatment — the quote and *why* it wobbled, for you to weigh in the context of your decision. And a weak signal that shows up **across three or more independent segments** is surfaced as *"converges, so you weigh it"* — because five segments each saying *"I'll pay for the doing, not the knowing"* is worth seeing, even though any one of them is a hypothetical on its own. (Your team's *own* assertions never get this treatment — only real user voice.)
+
 ---
 
 ## Current limitations of this plugin

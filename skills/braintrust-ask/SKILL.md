@@ -62,6 +62,14 @@ That mismatch — a confident idea resting on weak evidence — is the highest-v
 Verdict per hypothesis: **supported** (real usable evidence) / **mixed** / **unsupported** (only
 weak evidence) / **no-evidence** (nothing in the base speaks to it).
 
+**Then surface the uncertain middle in a "you decide" bucket — never silently count it as support, nor
+drop it.** For each hypothesis, pull the relevant `confidence:"torn"` / borderline claims and any
+**convergent** weak cluster the digest flags (≥3 segments), and present them verbatim for the user to
+judge in their own context. This does **not** change the verdict: a hypothesis backed only by discount
+claims is still **unsupported** — but if a cross-segment convergent cluster speaks to it, show it as a
+you-decide line rather than omitting it, because the user is the expert on their situation and a
+5-segment convergence may matter to them even when it's weak-as-evidence.
+
 ## Step 7 — Output
 
 Per hypothesis, then overall:
@@ -78,6 +86,9 @@ Provenance: <#sources>, <segment(s)>.
 
 ### Hypothesis 2: <restated>
 Verdict: NO-EVIDENCE / weak — only <…> discount claims (e.g. "I'd pay for that" = future promise).
+Judge unsure — your call in context:
+- torn (<committed>/<bandAlt>) · "<verbatim quote>" — <source_file> (<id>) · why: <tornReason>
+- convergent-but-weak · <K> hypothetical claims across <S> segments say: "<the shared line>"
 
 ## Overall verdict
 <Build-readiness in plain language: which parts are well-evidenced (usable), which rest on weak
