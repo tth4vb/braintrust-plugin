@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-marketplace.json",
+  "name": "braintrust",
+  "owner": {
+    "name": "Trevor Hinkle"
+  },
+  "description": "Braintrust — evidence-graded user research for Claude Code. Grade scattered research with a calibrated Mom Test lens, then pressure-test product ideas against it. Zero backend.",
+  "plugins": [
+    {
+      "name": "braintrust",
+      "source": "./",
+      "description": "Turn scattered user research into an evidence-graded running analysis (setup → ingest → ask), then check any idea against real user signal. Surfaces where the judge is unsure and where weak signals converge, for you to judge in context."
+    }
+  ]
+}

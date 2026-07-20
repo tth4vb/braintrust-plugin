@@ -4,16 +4,29 @@
 
 Braintrust turns your scattered user research into an evidence-graded knowledge base your coding agent can consult, then lets you pressure-test any feature idea against it. It grades every piece of research by how trustworthy it is as evidence — separating *"last Tuesday I spent two hours fixing the CSV by hand"* (real, usable) from *"I'd definitely pay for that"* (a hypothetical you shouldn't build on).
 
-A single Claude Code **plugin** (`braintrust`), distributed through the official community marketplace. **Zero backend** — everything runs in your Claude Code session and writes to a local folder; no server, no API keys, no data leaves your machine.
+A single Claude Code **plugin** (`braintrust`), installable straight from this GitHub repo. **Zero backend** — everything runs in your Claude Code session and writes to a local folder; no server, no API keys, no data leaves your machine.
 
 ---
 
 ## Install
 
+**Requires:** [Claude Code](https://code.claude.com) (any recent version — plugins are built in).
+
+From inside a Claude Code session, run:
+
 ```bash
-/plugin marketplace add anthropics/claude-plugins-community
-/plugin install braintrust@claude-community
+/plugin marketplace add tth4vb/braintrust-plugin
+/plugin install braintrust@braintrust
 ```
+
+That's it — the three skills are available immediately, no restart. (If the `owner/repo` shorthand
+doesn't resolve, use the full URL: `/plugin marketplace add https://github.com/tth4vb/braintrust-plugin`.)
+
+- **Update later:** `/plugin marketplace update braintrust` then `/plugin install braintrust@braintrust`.
+- **Remove:** `/plugin uninstall braintrust`.
+
+> This repo is its own single-plugin marketplace (`braintrust`) — you're installing directly from the
+> source, nothing else required.
 
 ---
 
@@ -132,10 +145,10 @@ The lens is **calibrated**: ~94% agreement with careful human judgment, and **ze
 
 ## Development
 
-Bare plugin (manifest at `.claude-plugin/plugin.json`, skills under `skills/`, shared rubric in `reference/`), referenceable by any marketplace via `source: {github, repo: "tth4vb/braintrust-plugin"}`.
+Plugin manifest at `.claude-plugin/plugin.json`, skills under `skills/`, shared rubric in `reference/`. The repo is **self-listing**: `.claude-plugin/marketplace.json` points at `source: "./"`, so `/plugin marketplace add tth4vb/braintrust-plugin` installs this same tree. It's also referenceable by any other marketplace via `source: {github, repo: "tth4vb/braintrust-plugin"}`.
 
 - Validate: `claude plugin validate .`
-- Local install test: a gitignored `dev-marketplace/` is provided — `/plugin marketplace add ./dev-marketplace` then `/plugin install braintrust@braintrust-dev`.
+- Isolated install test: a gitignored `dev-marketplace/` is provided — `/plugin marketplace add ./dev-marketplace` then `/plugin install braintrust@braintrust-dev`.
 
 ## License
 
